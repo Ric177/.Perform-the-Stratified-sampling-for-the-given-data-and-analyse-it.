@@ -1,0 +1,1 @@
+# .Perform-the-Stratified-sampling-for-the-given-data-and-analyse-it.
