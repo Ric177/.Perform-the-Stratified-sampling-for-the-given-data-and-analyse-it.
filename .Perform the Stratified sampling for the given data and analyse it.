@@ -1,0 +1,34 @@
+we are to carry out a hypothetical housing quality survey across Lagos state, Nigeria.
+And we looking at a total of 5000 houses (hypothetically). We don’t just go to one local
+government and select 5000 houses, rather we ensure that the 5000 houses are a
+representative of the whole 20 local government areas Lagos state is comprised of. This
+is called stratified sampling. The population is divided into homogenous strata and the
+right number of instances is sampled from each stratum to guarantee that the test-set
+(which in this case is the 5000 houses) is a representative of the overall population. If
+we used random sampling, there would be a significant chance of having bias in the
+survey results.
+Program Code:
+import pandas as pd
+importnumpy as np
+importmatplotlib
+importmatplotlib.pyplot as plt
+plt.rcParams['axes.labelsize'] = 14
+plt.rcParams['xtick.labelsize'] = 12
+plt.rcParams['ytick.labelsize'] = 12
+importseaborn as sns
+color = sns.color_palette()
+sns.set_style('darkgrid')
+importsklearn
+fromsklearn.model_selection import train_test_split
+housing =pd.read_csv('housing.csv')
+print(housing.head())
+print(housing.info())
+#creating a heatmap of the attributes in the dataset
+
+correlation_matrix = housing.corr()
+plt.subplots(figsize=(8,6))
+sns.heatmap(correlation_matrix, center=0, annot=True, linewidths=.3)
+corr =housing.corr()
+print(corr['median_house_value'].sort_values(ascending=False))
+sns.distplot(housing.median_income)
+plt.show()
